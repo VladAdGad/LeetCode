@@ -4,8 +4,7 @@
 using namespace std;
 
 vector<vector<int>> generate(int numRows) {
-    vector<vector<int>> result;
-    result.resize(numRows);
+    vector<vector<int>> result(numRows);
 
     for (int i = 0; i < numRows; ++i) {
         result.at(i).resize(i + 1);
@@ -23,14 +22,12 @@ vector<vector<int>> generate(int numRows) {
 }
 
 int main() {
-
     vector<vector<int>> result1 = generate(5);
 
-    for (int k = 0; k < result1.size(); ++k) {
-        for (int l = 0; l < result1[k].size(); ++l) {
-            cout << result1[k][l] << ' ';
+    for (auto & i : result1) {
+        for (int j : i) {
+            cout << j << ' ';
         }
-
         cout << endl;
     }
 
