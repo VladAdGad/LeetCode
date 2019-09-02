@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 
-add_subdirectory(DiagonalTraverse)
-add_subdirectory(DominantIndex)
-add_subdirectory(FindPivotIndex)
-add_subdirectory(PascalsTriangle)
-add_subdirectory(SpiralMatrix)
+add_subdirectory(ArrayAndString/DiagonalTraverse)
+add_subdirectory(ArrayAndString/DominantIndex)
+add_subdirectory(ArrayAndString/FindPivotIndex)
+add_subdirectory(ArrayAndString/PascalsTriangle)
+add_subdirectory(ArrayAndString/SpiralMatrix)
