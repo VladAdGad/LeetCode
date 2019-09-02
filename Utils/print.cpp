@@ -1,20 +1,27 @@
 #include <vector>
-#include <iostream>
+#include <string>
+#include <iterator>
+#include <sstream>
 
 #include "print.h"
 
-void print(const std::vector<int>& cont) {
+std::string print(const std::vector<int> &cont) {
+    std::stringstream result;
+    std::copy(cont.begin(), cont.end(), std::ostream_iterator<int>(result, " "));
 
-    for (auto const& i : cont) {
-        printf("{ %d } ", i);
-    }
+    return result.str();
 }
 
-void print(const std::vector<std::vector<int>>& cont) {
+std::string print(const std::vector<std::vector<int>> &cont) {
+    std::string result;
+    std::string separator = " ";
 
-    for (auto const& i : cont) {
-        for(auto const& j : i) {
-            printf("{ %d } ", j);
+    for(const auto& i: cont){
+        for(const auto j : i){
+            result += std::to_string(j) + separator;
         }
+        result += "\n";
     }
+
+    return result;
 }

@@ -1,6 +1,7 @@
-#include "vector"
-#include "iostream"
-#include "../../Utils/print.cpp"
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include "../../Utils/print.h"
 
 using namespace std;
 
@@ -88,31 +89,10 @@ int main() {
     vector<int> output3 = spiralOrder(matrix3);
     vector<int> output4 = spiralOrder(matrix4);
 
-    print(output1);
-
-//    printf("output: ");
-//    for (const auto &elem : output1) {
-//        printf("%d ", elem);
-//    }
-//    printf(" | expected: 1 2 3 6 9 8 7 4 5\n");
-//
-//    printf("output: ");
-//    for (const auto &elem : output2) {
-//        printf("%d ", elem);
-//    }
-//    printf(" | expected: 2 3\n");
-//
-//    printf("output: ");
-//    for (const auto &elem : output3) {
-//        printf("%d ", elem);
-//    }
-//    printf(" | expected: 2 3\n");
-//
-//    printf("output: ");
-//    for (const auto &elem : output4) {
-//        printf("%d ", elem);
-//    }
-//    printf(" | expected: {}\n");
+    printf("output: %s\nexpected: 1 2 3 6 9 8 7 4 5\n", print(output1).c_str());
+    printf("output: %s\nexpected: 2 3\n", print(output2).c_str());
+    printf("output: %s\nexpected: 2 3\n", print(output3).c_str());
+    printf("output: %s\nexpected: \n", print(output4).c_str());
 
     return 0;
 }

@@ -18,7 +18,7 @@ int pivotIndex(std::vector<int> &nums) {
 int main() {
     std::vector<int> nums{1, 7, 3, 6, 5, 6};
 
-    std::cout << pivotIndex(nums) << std::endl;
+    printf("%d", pivotIndex(nums));
 
     return 0;
 }

@@ -1,5 +1,6 @@
 #include "iostream"
 #include "vector"
+#include "../../Utils/print.h"
 
 using namespace std;
 
@@ -80,25 +81,10 @@ int main() {
     vector<int> output3 = findDiagonalOrder(matrix3);
     vector<int> output4 = findDiagonalOrder(matrix4);
 
-    printf("output1: ");
-    for (const auto &elem : output1) {
-        printf("%d ", elem);
-    }
-    printf("\n");
-    printf("output2: ");
-    for (const auto &elem : output2) {
-        printf("%d ", elem);
-    }
-    printf("\n");
-    printf("output3: ");
-    for (const auto &elem : output3) {
-        printf("%d ", elem);
-    }
-    printf("\n");
-    printf("output4: ");
-    for (const auto &elem : output4) {
-        printf("%d ", elem);
-    }
+    printf("output: %s\nexpected: 1 2 4 7 5 3 6 8 9\n", print(output1).c_str());
+    printf("output: %s\nexpected: 2 3\n", print(output2).c_str());
+    printf("output: %s\nexpected: 2 3\n", print(output3).c_str());
+    printf("output: %s\nexpected: \n", print(output4).c_str());
 
     return 0;
 }
