@@ -24,7 +24,7 @@ vector<vector<int>> generate(int numRows) {
 
 int main() {
     vector<vector<int>> result1 = generate(5);
-    
+
     printf("%s", print(result1).c_str());
 
     return 0;

@@ -16,8 +16,8 @@ std::string print(const std::vector<std::vector<int>> &cont) {
     std::string result;
     std::string separator = " ";
 
-    for(const auto& i: cont){
-        for(const auto j : i){
+    for (const auto &i: cont) {
+        for (const auto j : i) {
             result += std::to_string(j) + separator;
         }
         result += "\n";
