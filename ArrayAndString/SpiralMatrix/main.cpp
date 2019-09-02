@@ -1,5 +1,6 @@
 #include "vector"
 #include "iostream"
+#include "../../Utils/print.cpp"
 
 using namespace std;
 
@@ -87,29 +88,31 @@ int main() {
     vector<int> output3 = spiralOrder(matrix3);
     vector<int> output4 = spiralOrder(matrix4);
 
-    printf("output: ");
-    for (const auto &elem : output1) {
-        printf("%d ", elem);
-    }
-    printf(" | expected: 1 2 3 6 9 8 7 4 5\n");
+    print(output1);
 
-    printf("output: ");
-    for (const auto &elem : output2) {
-        printf("%d ", elem);
-    }
-    printf(" | expected: 2 3\n");
-
-    printf("output: ");
-    for (const auto &elem : output3) {
-        printf("%d ", elem);
-    }
-    printf(" | expected: 2 3\n");
-
-    printf("output: ");
-    for (const auto &elem : output4) {
-        printf("%d ", elem);
-    }
-    printf(" | expected: {}\n");
+//    printf("output: ");
+//    for (const auto &elem : output1) {
+//        printf("%d ", elem);
+//    }
+//    printf(" | expected: 1 2 3 6 9 8 7 4 5\n");
+//
+//    printf("output: ");
+//    for (const auto &elem : output2) {
+//        printf("%d ", elem);
+//    }
+//    printf(" | expected: 2 3\n");
+//
+//    printf("output: ");
+//    for (const auto &elem : output3) {
+//        printf("%d ", elem);
+//    }
+//    printf(" | expected: 2 3\n");
+//
+//    printf("output: ");
+//    for (const auto &elem : output4) {
+//        printf("%d ", elem);
+//    }
+//    printf(" | expected: {}\n");
 
     return 0;
 }
