@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(Utils)
+add_subdirectory(ArrayAndString/AddBinary)
 add_subdirectory(ArrayAndString/DiagonalTraverse)
 add_subdirectory(ArrayAndString/DominantIndex)
 add_subdirectory(ArrayAndString/FindPivotIndex)
