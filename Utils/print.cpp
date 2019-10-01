@@ -12,6 +12,17 @@ std::string print(const std::vector<int> &cont) {
     return result.str();
 }
 
+std::string print(const std::vector<char> &cont) {
+    std::string result;
+
+    for (char c : cont) {
+        result.push_back(c);
+        result.push_back(' ');
+    }
+
+    return result;
+}
+
 std::string print(const std::vector<std::vector<int>> &cont) {
     std::string result;
     std::string separator = " ";
