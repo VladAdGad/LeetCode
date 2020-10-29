@@ -1,6 +1,6 @@
 #include "iostream"
 #include "vector"
-#include "../../Utils/print.h"
+#include "../Utils/print.h"
 
 using namespace std;
 
@@ -67,24 +67,24 @@ vector<int> findDiagonalOrder(vector<vector<int>> &matrix) {
     return output;
 }
 
-int main() {
-    vector<vector<int>> matrix1{{1, 2, 3},
-                                {4, 5, 6},
-                                {7, 8, 9}};
-    vector<vector<int>> matrix2{{2, 3}};
-    vector<vector<int>> matrix3{{2},
-                                {3}};
-    vector<vector<int>> matrix4{};
-
-    vector<int> output1 = findDiagonalOrder(matrix1);
-    vector<int> output2 = findDiagonalOrder(matrix2);
-    vector<int> output3 = findDiagonalOrder(matrix3);
-    vector<int> output4 = findDiagonalOrder(matrix4);
-
-    printf("output: %s\nexpected: 1 2 4 7 5 3 6 8 9\n", print(output1).c_str());
-    printf("output: %s\nexpected: 2 3\n", print(output2).c_str());
-    printf("output: %s\nexpected: 2 3\n", print(output3).c_str());
-    printf("output: %s\nexpected: \n", print(output4).c_str());
-
-    return 0;
-}
+//int main() {
+//    vector<vector<int>> matrix1{{1, 2, 3},
+//                                {4, 5, 6},
+//                                {7, 8, 9}};
+//    vector<vector<int>> matrix2{{2, 3}};
+//    vector<vector<int>> matrix3{{2},
+//                                {3}};
+//    vector<vector<int>> matrix4{};
+//
+//    vector<int> output1 = findDiagonalOrder(matrix1);
+//    vector<int> output2 = findDiagonalOrder(matrix2);
+//    vector<int> output3 = findDiagonalOrder(matrix3);
+//    vector<int> output4 = findDiagonalOrder(matrix4);
+//
+//    printf("output: %s\nexpected: 1 2 4 7 5 3 6 8 9\n", print(output1).c_str());
+//    printf("output: %s\nexpected: 2 3\n", print(output2).c_str());
+//    printf("output: %s\nexpected: 2 3\n", print(output3).c_str());
+//    printf("output: %s\nexpected: \n", print(output4).c_str());
+//
+//    return 0;
+//}

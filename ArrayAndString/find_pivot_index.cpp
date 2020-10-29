@@ -15,10 +15,10 @@ int pivotIndex(std::vector<int> &nums) {
     return -1;
 }
 
-int main() {
-    std::vector<int> nums{1, 7, 3, 6, 5, 6};
-
-    printf("%d", pivotIndex(nums));
-
-    return 0;
-}
+//int main() {
+//    std::vector<int> nums{1, 7, 3, 6, 5, 6};
+//
+//    printf("%d", pivotIndex(nums));
+//
+//    return 0;
+//}

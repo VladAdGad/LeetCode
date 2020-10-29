@@ -1,5 +1,6 @@
 #include "vector"
 #include "string"
+#include "catch2/catch_all.hpp"
 
 using namespace std;
 
@@ -39,15 +40,19 @@ string longestCommonPrefix(vector<string> &strings) {
     return prefix;
 }
 
-int main() {
-    vector<string> strings1 = {"flower", "flow", "flight"};
-    vector<string> strings2 = {"dog", "racecar", "car"};
-
-    string output1 = longestCommonPrefix(strings1);
-    string output2 = longestCommonPrefix(strings2);
-
-    printf("expect: fl\nprefix: %s\n", output1.c_str());
-    printf("expect: \nprefix: %s\n", output2.c_str());
-
-    return 0;
+TEST_CASE("AIOB") {
+    REQUIRE(0 == 0);
 }
+
+//int main() {
+//    vector<string> strings1 = {"flower", "flow", "flight"};
+//    vector<string> strings2 = {"dog", "racecar", "car"};
+//
+//    string output1 = longestCommonPrefix(strings1);
+//    string output2 = longestCommonPrefix(strings2);
+//
+//    printf("expect: fl\nprefix: %s\n", output1.c_str());
+//    printf("expect: \nprefix: %s\n", output2.c_str());
+//
+//    return 0;
+//}

@@ -24,13 +24,13 @@ int dominantIndex(std::vector<int> &nums) {
     return -1;
 }
 
-int main() {
-
-    std::vector<int> v1{3, 6, 1, 0};
-    std::vector<int> v2{1, 2, 3, 4};
-
-    printf("%d\n", dominantIndex(v1));
-    printf("%d\n", dominantIndex(v2));
-
-    return 0;
-}
+//int main() {
+//
+//    std::vector<int> v1{3, 6, 1, 0};
+//    std::vector<int> v2{1, 2, 3, 4};
+//
+//    printf("%d\n", dominantIndex(v1));
+//    printf("%d\n", dominantIndex(v2));
+//
+//    return 0;
+//}

@@ -31,24 +31,24 @@ int strStr(string haystack, string needle) {
     return -1;
 }
 
-int main() {
-    string haystack1 = "hello";
-    string needle1 = "ll";
-
-    printf("Expected: %d\n", 2);
-    printf("Actual: %d\n\n", strStr(haystack1, needle1));
-
-    string haystack2 = "aaaaa";
-    string needle2 = "bba";
-
-    printf("Expected: %d\n", -1);
-    printf("Actual: %d\n\n", strStr(haystack2, needle2));
-
-    string haystack3 = "mississippi";
-    string needle3 = "issip";
-
-    printf("Expected: %d\n", 4);
-    printf("Actual: %d\n\n", strStr(haystack3, needle3));
-
-    return 0;
-}
+//int main() {
+//    string haystack1 = "hello";
+//    string needle1 = "ll";
+//
+//    printf("Expected: %d\n", 2);
+//    printf("Actual: %d\n\n", strStr(haystack1, needle1));
+//
+//    string haystack2 = "aaaaa";
+//    string needle2 = "bba";
+//
+//    printf("Expected: %d\n", -1);
+//    printf("Actual: %d\n\n", strStr(haystack2, needle2));
+//
+//    string haystack3 = "mississippi";
+//    string needle3 = "issip";
+//
+//    printf("Expected: %d\n", 4);
+//    printf("Actual: %d\n\n", strStr(haystack3, needle3));
+//
+//    return 0;
+//}

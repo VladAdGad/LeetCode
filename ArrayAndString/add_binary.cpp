@@ -1,6 +1,5 @@
 #include <string>
-
-using namespace std;
+#include <catch2/catch_all.hpp>
 
 std::string addBinary(std::string a, std::string b) {
     std::string result;
@@ -8,7 +7,7 @@ std::string addBinary(std::string a, std::string b) {
     int j = b.size() - 1;
     int carry = 0;
 
-    while(i >= 0 || j >= 0 || carry == 1) {
+    while (i >= 0 || j >= 0 || carry == 1) {
 
         carry += i >= 0 ? a[i] - '0' : 0;
         carry += j >= 0 ? b[j] - '0' : 0;
@@ -17,18 +16,13 @@ std::string addBinary(std::string a, std::string b) {
 
         carry /= 2;
 
-        i--; j--;
+        i--;
+        j--;
     }
 
     return result;
 }
 
-int main() {
-    std::string a = "11";
-    std::string b = "1";
-
-    printf("Expected: %d\n", 100);
-    printf("Actual: %s", addBinary(a, b).c_str());
-
-    return 0;
+TEST_CASE("Add Binary", "[Array And String]") {
+    REQUIRE(addBinary("11", "1") == "100");
 }

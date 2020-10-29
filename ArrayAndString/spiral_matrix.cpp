@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <vector>
 #include <iostream>
-#include "../../Utils/print.h"
+#include "../Utils/print.h"
 
 using namespace std;
 
@@ -75,24 +75,24 @@ vector<int> spiralOrder(vector<vector<int>> &matrix) {
     return result;
 }
 
-int main() {
-    vector<vector<int>> matrix1{{1, 2, 3},
-                                {4, 5, 6},
-                                {7, 8, 9}};
-    vector<vector<int>> matrix2{{2, 3}};
-    vector<vector<int>> matrix3{{2},
-                                {3}};
-    vector<vector<int>> matrix4{};
-
-    vector<int> output1 = spiralOrder(matrix1);
-    vector<int> output2 = spiralOrder(matrix2);
-    vector<int> output3 = spiralOrder(matrix3);
-    vector<int> output4 = spiralOrder(matrix4);
-
-    printf("output: %s\nexpected: 1 2 3 6 9 8 7 4 5\n", print(output1).c_str());
-    printf("output: %s\nexpected: 2 3\n", print(output2).c_str());
-    printf("output: %s\nexpected: 2 3\n", print(output3).c_str());
-    printf("output: %s\nexpected: \n", print(output4).c_str());
-
-    return 0;
-}
+//int main() {
+//    vector<vector<int>> matrix1{{1, 2, 3},
+//                                {4, 5, 6},
+//                                {7, 8, 9}};
+//    vector<vector<int>> matrix2{{2, 3}};
+//    vector<vector<int>> matrix3{{2},
+//                                {3}};
+//    vector<vector<int>> matrix4{};
+//
+//    vector<int> output1 = spiralOrder(matrix1);
+//    vector<int> output2 = spiralOrder(matrix2);
+//    vector<int> output3 = spiralOrder(matrix3);
+//    vector<int> output4 = spiralOrder(matrix4);
+//
+//    printf("output: %s\nexpected: 1 2 3 6 9 8 7 4 5\n", print(output1).c_str());
+//    printf("output: %s\nexpected: 2 3\n", print(output2).c_str());
+//    printf("output: %s\nexpected: 2 3\n", print(output3).c_str());
+//    printf("output: %s\nexpected: \n", print(output4).c_str());
+//
+//    return 0;
+//}

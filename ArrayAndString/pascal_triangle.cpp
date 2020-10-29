@@ -1,6 +1,6 @@
 #include "iostream"
 #include "vector"
-#include "../../Utils/print.h"
+#include "../Utils/print.h"
 
 using namespace std;
 
@@ -22,10 +22,10 @@ vector<vector<int>> generate(int numRows) {
     return result;
 }
 
-int main() {
-    vector<vector<int>> result1 = generate(5);
-
-    printf("%s", print(result1).c_str());
-
-    return 0;
-}
+//int main() {
+//    vector<vector<int>> result1 = generate(5);
+//
+//    printf("%s", print(result1).c_str());
+//
+//    return 0;
+//}
