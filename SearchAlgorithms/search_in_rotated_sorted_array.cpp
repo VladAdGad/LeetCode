@@ -1,72 +1,78 @@
 #include <iostream>
 #include <catch2/catch_all.hpp>
-#include "binary_search.h"
 
 int findIndexOfRotation(std::vector<int>& nums) {
     int left = 0;
     int right = nums.size() - 1;
-    int mid1;
-    int mid2;
+
+    if (nums[left] < nums[right]) {
+        return 0;
+    }
 
     while (left <= right) {
-        mid1 = left + ((right - left) / 2);
-        mid2 = mid1 + ((right - mid1) / 2);
-
-        if (mid1 < mid2) {
-            left = mid1 + 1;
-        } else if (mid1 >= mid2) {
-            right = mid2 - 1;
+        int mid = left + ((right - left) / 2);
+        if (nums[mid] > nums[mid + 1]) {
+            return mid + 1;
+        }
+        if (nums[mid] < nums[0]) {
+            right = mid - 1;
+        } else {
+            left = mid + 1;
         }
     }
 
-    return mid1;
+    return 0;
 }
 
-int search(std::vector<int>& nums, int target) {
-    int indexOfRotation = findIndexOfRotation(nums);
+int binarySearch(std::vector<int>& nums, int left, int right, int target) {
+    int mid;
 
-    if (nums.size() == 0) {
-        return -1;
-    }
-
-    int result1 = -1;
-    int result2 = -1;
-    if (nums.size() == 1) {
-        std::vector<int> split_vector1(nums.begin(), nums.end() - (nums.size() - 1));
-        result1 = binarySearch(split_vector1, target);
-
-        if (result1 != -1) {
-            return result1;
-        }
-    } else {
-        std::vector<int> split_vector1(nums.begin(), nums.end() - ((nums.size() - 1) - indexOfRotation));
-        std::vector<int> split_vector2;
-        if (indexOfRotation == 0) {
-            split_vector2 = std::vector<int>(nums.begin() + (indexOfRotation + 1), nums.end());
+    while (left <= right) {
+        mid = left + ((right - left) / 2);
+        if (target == nums[mid]) {
+            return mid;
+        } else if (target > nums[mid]) {
+            left = mid + 1;
         } else {
-            split_vector2 = std::vector<int>(nums.begin() + indexOfRotation, nums.end());
-        }
-        result1 = binarySearch(split_vector1, target);
-        result2 = binarySearch(split_vector2, target);
-
-        if (result1 != -1) {
-            return result1;
-        }
-        if (result2 != -1) {
-            return split_vector1.size() + result2;
+            right = mid - 1;
         }
     }
-
     return -1;
 }
 
+int search(std::vector<int>& nums, int target) {
+    if (nums.empty()) {
+        return -1;
+    }
+    if (nums.size() == 1) {
+        return nums[0] == target ? 0 : -1;
+    }
+
+    int indexOfRotation = findIndexOfRotation(nums);
+
+    if (indexOfRotation == 0) {
+        return binarySearch(nums, 0, nums.size() - 1, target);
+    } else {
+        if (target >= nums[0]) {
+            return binarySearch(nums, 0, indexOfRotation - 1, target);
+        } else {
+            return binarySearch(nums, indexOfRotation, nums.size() - 1, target);
+        }
+    }
+}
+
 TEST_CASE("") {
-    std::vector<int> vector1{4, 5, 6, 7, 0, 1, 2};
-    REQUIRE(search(vector1, 0) == 4);
+    std::vector<int> vector;
 
-    std::vector<int> vector2{1};
-    REQUIRE(search(vector2, 1) == 0);
+    vector = {0, 1, 2, 4, 5, 6, 7};
+    REQUIRE(search(vector, 0) == 0);
 
-    std::vector<int> vector3{3, 1};
-    REQUIRE(search(vector3, 1) == 1);
+    vector = {4, 5, 6, 7, 0, 1, 2};
+    REQUIRE(search(vector, 0) == 4);
+
+    vector = {1};
+    REQUIRE(search(vector, 1) == 0);
+
+    vector = {3, 1};
+    REQUIRE(search(vector, 1) == 1);
 }
