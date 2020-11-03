@@ -5,14 +5,14 @@ struct DoubleListNode {
     DoubleListNode *next = nullptr;
 };
 
-class MyLinkedList {
+class SinglyLinkedList {
 public:
     int size;
     DoubleListNode *head;
     DoubleListNode *tail;
 
     /** Initialize your data structure here. */
-    MyLinkedList() {
+    SinglyLinkedList() {
         size = 0;
         head = nullptr;
         tail = nullptr;
