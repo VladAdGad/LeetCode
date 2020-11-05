@@ -2,54 +2,53 @@
 
 class MinStack {
 private:
-    std::vector<int> data;
+    std::vector<int> values;
+    std::vector<int> minValues;
     int indexOfMinNum = -1;
 public:
-    /** initialize your data structure here. */
     MinStack() = default;
 
     void push(int value) {
-        if (data.empty()) {
-            indexOfMinNum = 0;
+        if(values.empty()) {
+            minValues.push_back(value);
+        } else {
+            minValues.push_back(std::min(minValues.back(), value));
         }
-
-        data.push_back(value);
-
-        if (getMin() > value) {
-            indexOfMinNum = data.size() - 1;
-        }
+        values.push_back(value);
     }
 
     void pop() {
-        if (data.size() - 1 == indexOfMinNum) {
-            data.pop_back();
-            indexOfMinNum = 0;
-            for (int i = 0; i < data.size(); ++i) {
-                if (getMin() > data[i]) {
-                    indexOfMinNum = i;
-                }
-            }
-        } else {
-            data.pop_back();
-        }
+        values.pop_back();
+        minValues.pop_back();
     }
 
     int top() {
-        return data.back();
+        return values.back();
     }
 
     int getMin() {
-        return data[indexOfMinNum];
+        return minValues.back();
     }
 };
 
 TEST_CASE("Min Stack", "[Data Structures]") {
-    MinStack *minStack = new MinStack();
+    MinStack *minStack;
+
+    minStack = new MinStack();
     minStack->push(-2);
     minStack->push(0);
     minStack->push(-3);
-    minStack->getMin(); // return -3
+    REQUIRE(minStack->getMin() == -3);
     minStack->pop();
-    minStack->top();    // return 0
-    minStack->getMin(); // return -2
+    REQUIRE(minStack->top() == 0);
+    REQUIRE(minStack->getMin() == -2);
+
+    minStack = new MinStack();
+    minStack->push(-2);
+    minStack->push(0);
+    minStack->push(-1);
+    REQUIRE(minStack->getMin() == -2);
+    REQUIRE(minStack->top() == -1);
+    minStack->pop();
+    REQUIRE(minStack->getMin() == -2);
 }
