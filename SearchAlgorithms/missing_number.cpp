@@ -1,6 +1,6 @@
 #include <catch2/catch_all.hpp>
 
-int missingNumber_0(std::vector<int> nums) {
+int missingNumber_0(const std::vector<int>& nums) {
     int actualSum = 0;
     for (int num : nums) {
         actualSum += num;//overflow is possible
@@ -10,7 +10,7 @@ int missingNumber_0(std::vector<int> nums) {
     return expectedSum - actualSum;
 }
 
-int missingNumber_1(std::vector<int>& nums) {
+int missingNumber_1(const std::vector<int>& nums) {
     int x1 = 0; //xor of all given elements
     int x2 = 0; //xor of all elements
 
