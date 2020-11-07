@@ -171,8 +171,6 @@ minStack.getMin(); // return -2
 - Methods **pop**, **top** and **getMin** operations will always be called on **non-empty** stacks.
 
 # Design Singly Linked List
-Design Linked List
-
 Design your implementation of the linked list. You can choose to use a singly or doubly linked list.
 A node in a singly linked list should have two attributes: val and next. val is the value of the current node, and next is a pointer/reference to the next node.
 If you want to use the doubly linked list, you will need one more attribute prev to indicate the previous node in the linked list. 
@@ -228,3 +226,69 @@ Output: [4,9,9,49,121]
 - **1 <= A.length <= 10000**
 - **-10000 <= A[i] <= 10000**
 - **A** is sorted in non-decreasing order.
+
+# Valid Parentheses
+Given a string **s** containing just the characters **'('**, **')'**, **'{'**, **'}'**, **'\['** and **'\]'**, determine if the input string is valid.
+  
+An input string is valid if:
+- Open brackets must be closed by the same type of brackets.
+- Open brackets must be closed in the correct order.
+
+**Example 1:**
+```
+Input: s = "()"
+Output: true
+```
+
+**Example 2:**
+```
+Input: s = "()[]{}"
+Output: true
+```
+**Example 3:**
+```
+Input: s = "(]"
+Output: false
+```
+**Example 4:**
+```
+Input: s = "([)]"
+Output: false
+```
+**Example 5:**
+```
+Input: s = "{[]}"
+Output: true
+```
+**Constraints:**
+- **1 <= s.length <= 104**
+- **s** consists of parentheses only **'()[]{}'**.
+
+**Hint #1  **
+An interesting property about a valid parenthesis expression is that a sub-expression of a valid expression should also be a valid expression. (Not every sub-expression) e.g.
+```
+{ { } [ ] [ [ [ ] ] ] } is VALID expression
+          [ [ [ ] ] ]    is VALID sub-expression
+  { } [ ]                is VALID sub-expression
+```
+Can we exploit this recursive structure somehow?
+**Hint #2**
+What if whenever we encounter a matching pair of parenthesis in the expression, we simply remove it from the expression? This would keep on shortening the expression. e.g.
+```
+{ { ( { } ) } }
+      |_|
+
+{ { (      ) } }
+    |______|
+
+{ {          } }
+  |__________|
+
+{                }
+|________________|
+
+VALID EXPRESSION!
+```
+**Hint #3**
+The **stack** data structure can come in handy here in representing this recursive structure of the problem. 
+We can't really process this from the inside out because we don't have an idea about the overall structure. But, the stack can help us process this recursively i.e. from outside to inwards.

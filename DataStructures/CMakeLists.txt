@@ -8,5 +8,6 @@ add_executable(${PROJECT_NAME}
         min_stack.cpp
         singly_linked_list.cpp
         max_consecutive_ones.cpp
-        squares_of_a_sorted_array.cpp)
+        squares_of_a_sorted_array.cpp
+        valid_parentheses.cpp)
 target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS_CATCH2})
