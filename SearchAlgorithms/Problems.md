@@ -1,4 +1,5 @@
-# Binary Search
+# BinarySearch
+## Binary Search
 Given a sorted (in ascending order) integer array nums of n elements and a target value, write a function to search target in nums. 
 If target exists, then return its index, otherwise return -1.
 
@@ -19,7 +20,7 @@ Explanation: 2 does not exist in nums so return -1
 2. n will be in the range [1, 10000].
 3. The value of each element in nums will be in the range [-9999, 9999].
 
-# Guess Number
+## Guess Number
 We are playing the Guess Game. The game is as follows:
 I pick a number from **1** to **n**. You have to guess which number I picked.
 Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.
@@ -55,7 +56,56 @@ Output: 2
 * **1 <= n <= 231 - 1**
 * **1 <= pick <= n**
 
-# Linear Search
+## Search in Rotated Sorted Array
+You are given an integer array **nums** sorted in ascending order, and an integer **target**.
+Suppose that **nums** is rotated at some pivot unknown to you beforehand (i.e., **[0,1,2,4,5,6,7]** might become **[4,5,6,7,0,1,2]**).
+If **target** is found in the array return its index, otherwise, return **-1**.
+
+**Example 1:**
+```
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
+```
+**Example 2:**
+```
+Input: nums = [4,5,6,7,0,1,2], target = 3
+Output: -1
+```
+**Example 3:**
+```
+Input: nums = [1], target = 0
+Output: -1
+```
+**Constraints:**
+* **1 <= nums.length <= 5000**
+* **-10^4 <= nums[i] <= 10^4**
+* All values of **nums** are **unique**.
+* **nums** is guranteed to be rotated at some pivot.
+* **-10^4 <= target <= 10^4**
+
+## Sqrt
+Implement **int sqrt(int x)**.
+Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
+Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
+
+**Example 1:**
+```
+Input: 4
+Output: 2
+```
+**Example 2:**
+```
+Input: 8
+Output: 2
+Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
+```
+* **Hint #1**
+Try exploring all integers. (Credits: @annujoshi)
+* **Hint #2**
+Use the sorted property of integers to reduced the search space. (Credits: @annujoshi)
+
+# LinearSearch
+## Linear Search
 Given an array Arr of N elements and a integer K. Your task is to return the position of first occurence of K in the given array.
 Note: Position of first element is considered as 1.
 
@@ -86,7 +136,8 @@ Return -1 if the number is not found in array. You don't to print answer or take
     - 1 <= K <= 106
     - 1 <= Arr[i] <= 106
 
-# Missing Number
+# Other
+## Missing Number
 Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
 
 Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?
@@ -120,51 +171,3 @@ Explanation: n = 1 since there is 1 number, so all numbers are in the range [0,1
 - **1 <= n <= 104**
 - **0 <= nums[i] <= n**
 - All the numbers of **nums** are **unique**.
-
-# Search in Rotated Sorted Array
-You are given an integer array **nums** sorted in ascending order, and an integer **target**.
-Suppose that **nums** is rotated at some pivot unknown to you beforehand (i.e., **[0,1,2,4,5,6,7]** might become **[4,5,6,7,0,1,2]**).
-If **target** is found in the array return its index, otherwise, return **-1**.
-
-**Example 1:**
-```
-Input: nums = [4,5,6,7,0,1,2], target = 0
-Output: 4
-```
-**Example 2:**
-```
-Input: nums = [4,5,6,7,0,1,2], target = 3
-Output: -1
-```
-**Example 3:**
-```
-Input: nums = [1], target = 0
-Output: -1
-```
-**Constraints:**
-* **1 <= nums.length <= 5000**
-* **-10^4 <= nums[i] <= 10^4**
-* All values of **nums** are **unique**.
-* **nums** is guranteed to be rotated at some pivot.
-* **-10^4 <= target <= 10^4**
-
-# Sqrt
-Implement **int sqrt(int x)**.
-Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
-Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
-
-**Example 1:**
-```
-Input: 4
-Output: 2
-```
-**Example 2:**
-```
-Input: 8
-Output: 2
-Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
-```
-* **Hint #1**
-Try exploring all integers. (Credits: @annujoshi)
-* **Hint #2**
-Use the sorted property of integers to reduced the search space. (Credits: @annujoshi)

@@ -56,7 +56,7 @@ public:
     }
 };
 
-TEST_CASE("Circular Queue", "[Data Structure]") {
+TEST_CASE("Circular Queue", "[Data Structures]") {
 
     MyCircularQueue *myCircularQueue;
 

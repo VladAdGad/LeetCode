@@ -1,38 +1,5 @@
-# Design Circular Queue
-Design your implementation of the circular queue. The circular queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle and the last position is connected back to the first position to make a circle. It is also called "Ring Buffer".
-  
-One of the benefits of the circular queue is that we can make use of the spaces in front of the queue. In a normal queue, once the queue becomes full, we cannot insert the next element even if there is a space in front of the queue. But using the circular queue, we can use the space to store new values.
-  
-Your implementation should support following operations:
-- **MyCircularQueue(k)**: Constructor, set the size of the queue to be k.
-- **Front**: Get the front item from the queue. If the queue is empty, return -1.
-- **Rear**: Get the last item from the queue. If the queue is empty, return -1.
-- **enQueue(value)**: Insert an element into the circular queue. Return true if the operation is successful.
-- **deQueue()**: Delete an element from the circular queue. Return true if the operation is successful.
-- **isEmpty()**: Checks whether the circular queue is empty or not.
-- **isFull()**: Checks whether the circular queue is full or not.
-  
-**Example:**
-```
-MyCircularQueue circularQueue = new MyCircularQueue(3); // set the size to be 3
-circularQueue.enQueue(1);  // return true
-circularQueue.enQueue(2);  // return true
-circularQueue.enQueue(3);  // return true
-circularQueue.enQueue(4);  // return false, the queue is full
-circularQueue.Rear();  // return 3
-circularQueue.isFull();  // return true
-circularQueue.deQueue();  // return true
-circularQueue.enQueue(4);  // return true
-circularQueue.Rear();  // return 4
-```  
-
-**Note:**
-- All values will be in the range of [0, 1000].
-- The number of operations will be in the range of [1, 1000].
-- Please do not use the built-in Queue library.
-  
-
-# Duplicate Zeros
+# Array
+## Duplicate Zeros
 Given a fixed length array **arr** of integers, duplicate each occurrence of zero, shifting the remaining elements to the right.
 
 Note that elements beyond the length of the original array are not written.
@@ -68,7 +35,7 @@ The main problem with not using additional memory is that we might override elem
 **Hide Hint #4**
 If we had enough space available, we would be able to accommodate all the elements properly. The new length would be the original length of the array plus the number of zeros. Can we use this information somehow to solve the problem?
 
-# Find Numbers with Even Number of Digits
+## Find Numbers with Even Number of Digits
 Given an array **nums** of integers, return how many of them contain an **even number** of digits.
 
 **Example 1:**
@@ -94,7 +61,7 @@ Only 1771 contains an even number of digits.
 - **1 <= nums.length <= 500**
 - **1 <= nums[i] <= 10^5**
 
-# Find Pivot Index
+## Find Pivot Index
 Given an array of integers nums, write a method that returns the "pivot" index of this array.
 
 We define the pivot index as the index where the sum of all the numbers to the left of the index is equal to the sum of all the numbers to the right of the index.
@@ -120,7 +87,7 @@ There is no index that satisfies the conditions in the problem statement.
 - The length of **nums** will be in the range **[0, 10000]**.
 - Each element **nums[i]** will be an integer in the range **[-1000, 1000]**.
 
-# Max Consecutive Ones
+## Max Consecutive Ones
 Given a binary array, find the maximum number of consecutive 1s in this array.
 
 **Example 1:**
@@ -140,37 +107,27 @@ How do you detect that a new window of 1s has started? The next part is detectin
 How do you detect the ending point for an existing window? If you figure these two things out, you will be able to detect the windows of consecutive ones. 
 All that remains afterward is to find the longest such window and return the size.
 
-# Min Stack
-Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
-
-- push(x) -- Push element x onto stack.
-- pop() -- Removes the element on top of the stack.
-- top() -- Get the top element.
-- getMin() -- Retrieve the minimum element in the stack.
+## Squares of a Sorted Array
+Given an array of integers A sorted in non-decreasing order, return an array of the squares of each number, also in sorted non-decreasing order.
 
 **Example 1:**
 ```
-Input
-["MinStack","push","push","push","getMin","pop","top","getMin"]
-[[],[-2],[0],[-3],[],[],[],[]]
-
-Output
-[null,null,null,null,-3,null,0,-2]
-
-Explanation
-MinStack minStack = new MinStack();
-minStack.push(-2);
-minStack.push(0);
-minStack.push(-3);
-minStack.getMin(); // return -3
-minStack.pop();
-minStack.top();    // return 0
-minStack.getMin(); // return -2
+Input: [-4,-1,0,3,10]
+Output: [0,1,9,16,100]
 ```
-**Constraints:**
-- Methods **pop**, **top** and **getMin** operations will always be called on **non-empty** stacks.
+**Example 2:**
+```
+Input: [-7,-3,2,3,11]
+Output: [4,9,9,49,121]
+```
 
-# Design Singly Linked List
+**Note:**
+- **1 <= A.length <= 10000**
+- **-10000 <= A[i] <= 10000**
+- **A** is sorted in non-decreasing order.
+
+# LinkedList
+## Design Singly Linked List
 Design your implementation of the linked list. You can choose to use a singly or doubly linked list.
 A node in a singly linked list should have two attributes: val and next. val is the value of the current node, and next is a pointer/reference to the next node.
 If you want to use the doubly linked list, you will need one more attribute prev to indicate the previous node in the linked list. 
@@ -208,26 +165,83 @@ myLinkedList.get(1);              // return 3
 - Please do not use the built-in LinkedList library.
 - At most **2000** calls will be made to **get**, **addAtHead**, **addAtTail**,  **addAtIndex** and **deleteAtIndex**.
 
-# Squares of a Sorted Array
-Given an array of integers A sorted in non-decreasing order, return an array of the squares of each number, also in sorted non-decreasing order.
+# Queue
+## Design Circular Queue
+Design your implementation of the circular queue. The circular queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle and the last position is connected back to the first position to make a circle. It is also called "Ring Buffer".
+  
+One of the benefits of the circular queue is that we can make use of the spaces in front of the queue. In a normal queue, once the queue becomes full, we cannot insert the next element even if there is a space in front of the queue. But using the circular queue, we can use the space to store new values.
+  
+Your implementation should support following operations:
+- **MyCircularQueue(k)**: Constructor, set the size of the queue to be k.
+- **Front**: Get the front item from the queue. If the queue is empty, return -1.
+- **Rear**: Get the last item from the queue. If the queue is empty, return -1.
+- **enQueue(value)**: Insert an element into the circular queue. Return true if the operation is successful.
+- **deQueue()**: Delete an element from the circular queue. Return true if the operation is successful.
+- **isEmpty()**: Checks whether the circular queue is empty or not.
+- **isFull()**: Checks whether the circular queue is full or not.
+  
+**Example:**
+```
+MyCircularQueue circularQueue = new MyCircularQueue(3); // set the size to be 3
+circularQueue.enQueue(1);  // return true
+circularQueue.enQueue(2);  // return true
+circularQueue.enQueue(3);  // return true
+circularQueue.enQueue(4);  // return false, the queue is full
+circularQueue.Rear();  // return 3
+circularQueue.isFull();  // return true
+circularQueue.deQueue();  // return true
+circularQueue.enQueue(4);  // return true
+circularQueue.Rear();  // return 4
+```  
+
+**Note:**
+- All values will be in the range of [0, 1000].
+- The number of operations will be in the range of [1, 1000].
+- Please do not use the built-in Queue library.
+
+# Stack
+## Daily Temperatures
+Given a list of daily temperatures **T**, return a list such that, for each day in the input, tells you how many days you would have to wait until a warmer temperature. 
+If there is no future day for which this is possible, put **0** instead.
+
+For example, given the list of temperatures **T = [73, 74, 75, 71, 69, 72, 76, 73]**, your output should be **[1, 1, 4, 2, 1, 1, 0, 0]**.
+
+Note: The length of **temperatures** will be in the range **[1, 30000]**. Each temperature will be an integer in the range **[30, 100]**. 
+
+**Hint #1**
+If the temperature is say, 70 today, then in the future a warmer temperature must be either 71, 72, 73, ..., 99, or 100. We could remember when all of them occur next.
+
+## Min Stack
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+- push(x) -- Push element x onto stack.
+- pop() -- Removes the element on top of the stack.
+- top() -- Get the top element.
+- getMin() -- Retrieve the minimum element in the stack.
 
 **Example 1:**
 ```
-Input: [-4,-1,0,3,10]
-Output: [0,1,9,16,100]
-```
-**Example 2:**
-```
-Input: [-7,-3,2,3,11]
-Output: [4,9,9,49,121]
-```
+Input
+["MinStack","push","push","push","getMin","pop","top","getMin"]
+[[],[-2],[0],[-3],[],[],[],[]]
 
-**Note:**
-- **1 <= A.length <= 10000**
-- **-10000 <= A[i] <= 10000**
-- **A** is sorted in non-decreasing order.
+Output
+[null,null,null,null,-3,null,0,-2]
 
-# Valid Parentheses
+Explanation
+MinStack minStack = new MinStack();
+minStack.push(-2);
+minStack.push(0);
+minStack.push(-3);
+minStack.getMin(); // return -3
+minStack.pop();
+minStack.top();    // return 0
+minStack.getMin(); // return -2
+```
+**Constraints:**
+- Methods **pop**, **top** and **getMin** operations will always be called on **non-empty** stacks.
+
+## Valid Parentheses
 Given a string **s** containing just the characters **'('**, **')'**, **'{'**, **'}'**, **'\['** and **'\]'**, determine if the input string is valid.
   
 An input string is valid if:
@@ -264,7 +278,7 @@ Output: true
 - **1 <= s.length <= 104**
 - **s** consists of parentheses only **'()[]{}'**.
 
-**Hint #1  **
+**Hint #1**
 An interesting property about a valid parenthesis expression is that a sub-expression of a valid expression should also be a valid expression. (Not every sub-expression) e.g.
 ```
 { { } [ ] [ [ [ ] ] ] } is VALID expression

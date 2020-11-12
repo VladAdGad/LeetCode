@@ -4,7 +4,6 @@ class MinStack {
 private:
     std::vector<int> values;
     std::vector<int> minValues;
-    int indexOfMinNum = -1;
 public:
     MinStack() = default;
 

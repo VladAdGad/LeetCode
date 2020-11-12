@@ -29,7 +29,7 @@ bool isValid(const std::string& s) {
     return data.empty();
 }
 
-TEST_CASE("Valid Parentheses", "[Data Structure]") {
+TEST_CASE("Valid Parentheses", "[Data Structures]") {
     REQUIRE(isValid("()") == true);
     REQUIRE(isValid("]") == false);
     REQUIRE(isValid("(])") == false);
