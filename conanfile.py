@@ -1,12 +1,7 @@
-from conans import ConanFile, Meson
+from conans import ConanFile
 
 
 class Main(ConanFile):
-    generators = "pkg_config"
+    generators = "cmake"
     settings = "os", "compiler", "build_type"
     requires = "catch2/3.0.0@catchorg/stable"
-
-    def build(self):
-        meson = Meson(self)
-        meson.configure()
-        meson.build()
