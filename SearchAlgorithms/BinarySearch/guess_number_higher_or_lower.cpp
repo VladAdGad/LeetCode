@@ -37,6 +37,6 @@ int guessNumber(int n) {
     return -1;
 }
 
-TEST_CASE("Guess Number", "[Search Algorithm]") {
+TEST_CASE("Guess Number", "[Search Algorithms]") {
 //    REQUIRE(guessNumber(10) == 6);
 }

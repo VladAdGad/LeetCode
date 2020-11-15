@@ -5,18 +5,18 @@ int findMaxConsecutiveOnes(std::vector<int>& nums) {
     int curConsecutiveOfOnes = 0;
     int maxConsecutiveOfOnes = 0;
 
-    for(int elem: nums){
-        if(elem == 1) {
+    for (int elem: nums) {
+        if (elem == 1) {
             curConsecutiveOfOnes++;
         } else {
-            if(curConsecutiveOfOnes > maxConsecutiveOfOnes) {
+            if (curConsecutiveOfOnes > maxConsecutiveOfOnes) {
                 maxConsecutiveOfOnes = curConsecutiveOfOnes;
             }
             curConsecutiveOfOnes = 0;
         }
     }
 
-    if(curConsecutiveOfOnes > maxConsecutiveOfOnes) {
+    if (curConsecutiveOfOnes > maxConsecutiveOfOnes) {
         maxConsecutiveOfOnes = curConsecutiveOfOnes;
     }
 
@@ -24,9 +24,11 @@ int findMaxConsecutiveOnes(std::vector<int>& nums) {
 }
 
 TEST_CASE("Find Max Consecutive Ones", "[Data Structures]"){
-    std::vector vector1{1};
-    REQUIRE(findMaxConsecutiveOnes(vector1) == 1);
+    std::vector<int> vector;
 
-    std::vector vector2{1,1,0,1,1,1};
-    REQUIRE(findMaxConsecutiveOnes(vector2) == 3);
+    vector = {1};
+    REQUIRE(findMaxConsecutiveOnes(vector) == 1);
+
+    vector = {1, 1, 0, 1, 1, 1};
+    REQUIRE(findMaxConsecutiveOnes(vector) == 3);
 }
