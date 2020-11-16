@@ -13,7 +13,7 @@ add_executable(${PROJECT_NAME}
         DataStructures/Array/max_consecutive_ones.cpp
         DataStructures/Array/squares_of_a_sorted_array.cpp
         DataStructures/LinkedList/linked_list_cycle.cpp
-        DataStructures/LinkedList/singly_linked_list.cpp
+        DataStructures/LinkedList/design_linked_list.cpp
         DataStructures/Queue/circular_queue.cpp
         DataStructures/Stack/daily_temperatures.cpp
         DataStructures/Stack/min_stack.cpp
