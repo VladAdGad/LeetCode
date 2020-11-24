@@ -18,8 +18,7 @@ bool hasCycle(ListNode *head) {
 
     ListNode *slow = head;
     ListNode *fast = head->next;
-
-    while (fast != slow) {
+    while (slow != fast) {
         if (fast == nullptr || fast->next == nullptr) {
             return false;
         }
@@ -37,7 +36,8 @@ TEST_CASE("Linked List Cycle", "[Data Structures]") {
         auto *listNode0 = new ListNode(0);
         auto *listNode1 = new ListNode(1);
 
-        listNode0->next = listNode1->next = listNode0;
+        listNode0->next = listNode1;
+        listNode1->next = listNode0;
         REQUIRE(hasCycle(listNode0) == true);
     }
 
@@ -45,7 +45,7 @@ TEST_CASE("Linked List Cycle", "[Data Structures]") {
         auto *listNode0 = new ListNode(1);
         auto *listNode1 = new ListNode(2);
 
-        listNode0->next = listNode1->next;
+        listNode0->next = listNode1;
         REQUIRE(hasCycle(listNode0) == false);
     }
 

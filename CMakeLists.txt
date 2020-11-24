@@ -11,7 +11,9 @@ add_executable(${PROJECT_NAME}
         DataStructures/Array/find_pivot_index.cpp
         DataStructures/Array/largest_number_at_least_twice_of_others.cpp
         DataStructures/Array/max_consecutive_ones.cpp
+        DataStructures/Array/plus_one.cpp
         DataStructures/Array/squares_of_a_sorted_array.cpp
+        DataStructures/LinkedList/design_linked_list.cpp
         DataStructures/LinkedList/linked_list_cycle.cpp
         DataStructures/LinkedList/design_linked_list.cpp
         DataStructures/Queue/circular_queue.cpp
