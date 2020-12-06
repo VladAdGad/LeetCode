@@ -1,5 +1,5 @@
 #include <catch2/catch_all.hpp>
-#include "list_node.h"
+#include "list_node.hpp"
 
 ListNode *detectCycle(ListNode *head) {
     ListNode *walker = head, *runner = head;
@@ -20,7 +20,7 @@ ListNode *detectCycle(ListNode *head) {
         }
     }
 
-    return runner;
+    return nullptr;
 }
 
 TEST_CASE("Linked List Cycle II", "[Data Structures]") {
@@ -43,6 +43,12 @@ TEST_CASE("Linked List Cycle II", "[Data Structures]") {
         auto *listNode1 = new ListNode(2);
 
         listNode0->next = listNode1;
+        REQUIRE(detectCycle(listNode0) == nullptr);
+    }
+
+    SECTION("linked list non-cycle with one element") {
+        auto *listNode0 = new ListNode(1);
+
         REQUIRE(detectCycle(listNode0) == nullptr);
     }
 

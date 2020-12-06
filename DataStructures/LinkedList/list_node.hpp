@@ -1,5 +1,5 @@
-#ifndef LEETCODE_LIST_NODE_H
-#define LEETCODE_LIST_NODE_H
+#ifndef LEETCODE_LIST_NODE_HPP
+#define LEETCODE_LIST_NODE_HPP
 
 class ListNode {
 public:
@@ -9,4 +9,4 @@ public:
     explicit ListNode(int value);
 };
 
-#endif //LEETCODE_LIST_NODE_H
+#endif //LEETCODE_LIST_NODE_HPP

@@ -1,5 +1,5 @@
 #include <catch2/catch_all.hpp>
-#include "list_node.h"
+#include "list_node.hpp"
 
 bool hasCycle(ListNode *head) {
     if (head == nullptr) {
