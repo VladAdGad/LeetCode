@@ -1,15 +1,5 @@
 #include <catch2/catch_all.hpp>
-
-class ListNode {
-public:
-    int value;
-    ListNode *next;
-
-    explicit ListNode(int value) {
-        this->value = value;
-        next = nullptr;
-    }
-};
+#include "list_node.h"
 
 bool hasCycle(ListNode *head) {
     if (head == nullptr) {

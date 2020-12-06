@@ -1,20 +1,10 @@
 #include <catch2/catch_all.hpp>
-
-class SinglyLinkedListNode {
-public:
-    int value;
-    SinglyLinkedListNode *next;
-
-    explicit SinglyLinkedListNode(int value) {
-        this->value = value;
-        next = nullptr;
-    }
-};
+#include "list_node.h"
 
 class SinglyLinkedList {
 public:
-    SinglyLinkedListNode *head;
-    SinglyLinkedListNode *tail;
+    ListNode *head;
+    ListNode *tail;
     int size = 0;
 
     SinglyLinkedList() {
@@ -29,7 +19,7 @@ public:
         }
 
         int count = 0;
-        for (SinglyLinkedListNode *cur = head; count != index + 1; cur = cur->next, ++count) {
+        for (ListNode *cur = head; count != index + 1; cur = cur->next, ++count) {
             if (count == index) {
                 return cur->value;
             }
@@ -40,7 +30,7 @@ public:
 
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     bool addAtHead(int val) {
-        auto *newNode = new SinglyLinkedListNode(val);
+        auto *newNode = new ListNode(val);
 
         newNode->next = head;
         head = newNode;
@@ -54,7 +44,7 @@ public:
 
     /** Append a node of value val to the last element of the linked list. */
     bool addAtTail(int val) {
-        auto *newNode = new SinglyLinkedListNode(val);
+        auto *newNode = new ListNode(val);
 
         if (size == 0) {
             tail = newNode;
@@ -84,9 +74,9 @@ public:
         }
 
         int count = 0;
-        for (SinglyLinkedListNode *cur = head; count != index + 1; cur = cur->next, ++count) {
+        for (ListNode *cur = head; count != index + 1; cur = cur->next, ++count) {
             if (count == index - 1) {
-                auto *newNode = new SinglyLinkedListNode(val);
+                auto *newNode = new ListNode(val);
                 newNode->next = cur->next;
                 cur->next = newNode;
                 size++;
@@ -110,7 +100,7 @@ public:
         }
 
         int count = 0;
-        for (SinglyLinkedListNode *cur = head; count != index + 1; cur = cur->next, ++count) {
+        for (ListNode *cur = head; count != index + 1; cur = cur->next, ++count) {
             if (count == index - 1) {
                 cur->next = cur->next->next;
                 if (index == size - 1) {

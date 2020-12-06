@@ -13,10 +13,14 @@ add_executable(${PROJECT_NAME}
         DataStructures/Array/max_consecutive_ones.cpp
         DataStructures/Array/plus_one.cpp
         DataStructures/Array/squares_of_a_sorted_array.cpp
+
         DataStructures/LinkedList/design_linked_list.cpp
         DataStructures/LinkedList/linked_list_cycle.cpp
-        DataStructures/LinkedList/design_linked_list.cpp
+        DataStructures/LinkedList/linked_list_cycle_II.cpp
+        DataStructures/LinkedList/list_node.cpp
+
         DataStructures/Queue/circular_queue.cpp
+
         DataStructures/Stack/daily_temperatures.cpp
         DataStructures/Stack/min_stack.cpp
         DataStructures/Stack/valid_parentheses.cpp
@@ -25,7 +29,9 @@ add_executable(${PROJECT_NAME}
         SearchAlgorithms/BinarySearch/guess_number_higher_or_lower.cpp
         SearchAlgorithms/BinarySearch/search_in_rotated_sorted_array.cpp
         SearchAlgorithms/BinarySearch/sqrt.cpp
+
         SearchAlgorithms/LinearSearch/linear_search.cpp
+
         SearchAlgorithms/missing_number.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS_CATCH2})
