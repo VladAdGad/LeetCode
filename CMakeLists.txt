@@ -6,6 +6,7 @@ include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
 add_executable(${PROJECT_NAME}
+        DataStructures/Array/diagonal_traverse.cpp
         DataStructures/Array/duplicate_zeros.cpp
         DataStructures/Array/find_numbers_with_even_number_of_digits.cpp
         DataStructures/Array/find_pivot_index.cpp
