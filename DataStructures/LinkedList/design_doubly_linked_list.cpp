@@ -33,22 +33,17 @@ public:
         DoublyListNode *current;
         if (index < size / 2) {
             current = head;
-            while (index > 0) {
+            for (; index > 0; --index) {
                 current = current->next;
-                index--;
             }
-            return current->value;
         } else {
             current = tail;
-            index = size - 1 - index;
-            while (index > 0) {
+            for (index = size - 1 - index; index > 0; --index) {
                 current = current->prev;
-                index--;
             }
-            return current->value;
         }
 
-        return -1;
+        return current->value;
     }
 
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
@@ -102,16 +97,13 @@ public:
         DoublyListNode *current;
         if (index < size / 2) {
             current = head;
-            while (index > 0) {
+            for (; index > 0; --index) {
                 current = current->next;
-                index--;
             }
         } else {
             current = tail;
-            index = size - 1 - index;
-            while (index > 0) {
+            for (index = size - 1 - index; index > 0; --index) {
                 current = current->prev;
-                index--;
             }
         }
 
@@ -126,11 +118,7 @@ public:
 
     /** Delete the index-th node in the linked list, if the index is valid. */
     bool deleteAtIndex(int index) {
-        if (size == 0) {
-            return false;
-        }
-
-        if (index >= size) {
+        if (size == 0 || index >= size) {
             return false;
         }
 
@@ -152,16 +140,13 @@ public:
         DoublyListNode *current;
         if (index < size / 2) {
             current = head;
-            while (index > 0) {
+            for (; index > 0; --index) {
                 current = current->next;
-                index--;
             }
         } else {
             current = tail;
-            index = size - 1 - index;
-            while (index > 0) {
+            for (index = size - 1 - index; index > 0; --index) {
                 current = current->prev;
-                index--;
             }
         }
 
