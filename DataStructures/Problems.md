@@ -186,9 +186,9 @@ Output: [4,9,9,49,121]
 
 # LinkedList
 ## Design Doubly Linked List
-Design your implementation of the linked list. You can choose to use a singly or doubly linked list.
-A node in a singly linked list should have two attributes: **val** and **next**. **val** is the value of the current node, and **next** is a pointer/reference to the next node.
-If you want to use the doubly linked list, you will need one more attribute prev to indicate the previous node in the linked list. Assume all nodes in the linked list are **0-indexed**.
+Design your implementation of the linked list.
+A node in a doubly linked list should have two attributes: **val**, **next** and **prev**. **val** is the value of the current node, and **next** is a pointer/reference to the next node.
+Assume all nodes in the linked list are **0-indexed**.
 
 Implement the **MyLinkedList** class:
 - **MyLinkedList()** Initializes the **MyLinkedList** object.
@@ -222,9 +222,7 @@ Constraints:
 - At most **2000** calls will be made to **get**, **addAtHead**, **addAtTail**, **addAtIndex** and **deleteAtIndex**.
 
 ## Design Singly Linked List
-Design your implementation of the linked list. You can choose to use a singly or doubly linked list.
-A node in a singly linked list should have two attributes: val and next. val is the value of the current node, and next is a pointer/reference to the next node.
-If you want to use the doubly linked list, you will need one more attribute prev to indicate the previous node in the linked list. 
+A node in a singly linked list should have two attributes: val and next. val is the value of the current node, and next is a pointer/reference to the next node. 
 Assume all nodes in the linked list are **0-indexed**.
 
 Implement the **MyLinkedList** class:
