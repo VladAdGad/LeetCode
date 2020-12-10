@@ -15,10 +15,11 @@ add_executable(${PROJECT_NAME}
         DataStructures/Array/plus_one.cpp
         DataStructures/Array/squares_of_a_sorted_array.cpp
 
-        DataStructures/LinkedList/design_linked_list.cpp
+        DataStructures/LinkedList/design_singly_linked_list.cpp
+        DataStructures/LinkedList/design_doubly_linked_list.cpp
         DataStructures/LinkedList/linked_list_cycle.cpp
         DataStructures/LinkedList/linked_list_cycle_II.cpp
-        DataStructures/LinkedList/list_node.cpp
+        DataStructures/LinkedList/singly_list_node.cpp
 
         DataStructures/Queue/circular_queue.cpp
 

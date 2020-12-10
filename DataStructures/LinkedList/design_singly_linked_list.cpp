@@ -1,15 +1,16 @@
 #include <catch2/catch_all.hpp>
-#include "list_node.hpp"
+#include "singly_list_node.hpp"
 
 class SinglyLinkedList {
 public:
-    ListNode *head;
-    ListNode *tail;
-    int size = 0;
+    SinglyListNode *head;
+    SinglyListNode *tail;
+    int size;
 
     SinglyLinkedList() {
         head = nullptr;
         tail = nullptr;
+        size = 0;
     }
 
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
@@ -19,7 +20,7 @@ public:
         }
 
         int count = 0;
-        for (ListNode *cur = head; count != index + 1; cur = cur->next, ++count) {
+        for (SinglyListNode *cur = head; count != index + 1; cur = cur->next, ++count) {
             if (count == index) {
                 return cur->value;
             }
@@ -30,7 +31,7 @@ public:
 
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     bool addAtHead(int val) {
-        auto *newNode = new ListNode(val);
+        auto *newNode = new SinglyListNode(val);
 
         newNode->next = head;
         head = newNode;
@@ -44,17 +45,16 @@ public:
 
     /** Append a node of value val to the last element of the linked list. */
     bool addAtTail(int val) {
-        auto *newNode = new ListNode(val);
+        auto *newNode = new SinglyListNode(val);
 
         if (size == 0) {
             tail = newNode;
             head = tail;
-            size++;
-            return true;
+        } else {
+            tail->next = newNode;
+            tail = newNode;
         }
 
-        tail->next = newNode;
-        tail = newNode;
         size++;
         return true;
     }
@@ -74,9 +74,9 @@ public:
         }
 
         int count = 0;
-        for (ListNode *cur = head; count != index + 1; cur = cur->next, ++count) {
+        for (SinglyListNode *cur = head; count != index + 1; cur = cur->next, ++count) {
             if (count == index - 1) {
-                auto *newNode = new ListNode(val);
+                auto *newNode = new SinglyListNode(val);
                 newNode->next = cur->next;
                 cur->next = newNode;
                 size++;
@@ -100,7 +100,7 @@ public:
         }
 
         int count = 0;
-        for (ListNode *cur = head; count != index + 1; cur = cur->next, ++count) {
+        for (SinglyListNode *cur = head; count != index + 1; cur = cur->next, ++count) {
             if (count == index - 1) {
                 cur->next = cur->next->next;
                 if (index == size - 1) {
@@ -115,7 +115,8 @@ public:
     }
 };
 
-TEST_CASE("Linked List", "[Data Structures]") {
+
+TEST_CASE("Singly Linked List", "[Data Structures]") {
 
     SinglyLinkedList *linkedList;
 
@@ -130,10 +131,16 @@ TEST_CASE("Linked List", "[Data Structures]") {
         REQUIRE(linkedList->get(1) == -1);
     }
 
+    SECTION("get") {
+        linkedList = new SinglyLinkedList();
+        linkedList->addAtHead(7);
+        REQUIRE(linkedList->get(0) == 7);
+    }
+
     SECTION("addAtHead with empty linked list") {
         linkedList = new SinglyLinkedList();
-        linkedList->addAtHead(0);
-        REQUIRE(linkedList->get(0) == 0);
+        linkedList->addAtHead(7);
+        REQUIRE(linkedList->get(0) == 7);
         REQUIRE(linkedList->head == linkedList->tail);
     }
 
@@ -155,13 +162,13 @@ TEST_CASE("Linked List", "[Data Structures]") {
         REQUIRE(linkedList->head != linkedList->tail);
         REQUIRE(linkedList->get(0) == 0);
         REQUIRE(linkedList->get(1) == 1);
-        REQUIRE(linkedList->tail->value == 1);
         REQUIRE(linkedList->head->value == 0);
+        REQUIRE(linkedList->tail->value == 1);
     }
 
     SECTION("addAtTail with empty linked list") {
         linkedList = new SinglyLinkedList();
-        linkedList->addAtHead(0);
+        linkedList->addAtTail(0);
         REQUIRE(linkedList->get(0) == 0);
         REQUIRE(linkedList->tail == linkedList->head);
     }
@@ -169,48 +176,48 @@ TEST_CASE("Linked List", "[Data Structures]") {
     SECTION("addAtIndex using index which is higher than size of linked list") {
         linkedList = new SinglyLinkedList();
         linkedList->addAtHead(0);
-        REQUIRE(linkedList->addAtIndex(2, 1) == false);
-    }
-
-    SECTION("addAtIndex using index zero (first element) with empty linked list") {
-        linkedList = new SinglyLinkedList();
-        REQUIRE(linkedList->addAtIndex(0, 0) == true);
-        REQUIRE(linkedList->head == linkedList->tail);
-    }
-
-    SECTION("addAtIndex using index zero (first element)") {
-        linkedList = new SinglyLinkedList();
-        REQUIRE(linkedList->addAtIndex(0, 0) == true);
-        REQUIRE(linkedList->addAtIndex(0, 1) == true);
-        REQUIRE(linkedList->head->value == 1);
-        REQUIRE(linkedList->tail->value == 0);
+        REQUIRE_FALSE(linkedList->addAtIndex(2, 1));
     }
 
     SECTION("addAtIndex using index as same as size of linked list") {
         linkedList = new SinglyLinkedList();
         linkedList->addAtHead(0);
-        REQUIRE(linkedList->addAtIndex(1, 1) == true);
+        REQUIRE(linkedList->addAtIndex(1, 1));
         REQUIRE(linkedList->tail->value == 1);
+    }
+
+    SECTION("addAtIndex using index zero (first element) with empty linked list") {
+        linkedList = new SinglyLinkedList();
+        REQUIRE(linkedList->addAtIndex(0, 0));
+        REQUIRE(linkedList->head == linkedList->tail);
+    }
+
+    SECTION("addAtIndex using index zero (first element)") {
+        linkedList = new SinglyLinkedList();
+        REQUIRE(linkedList->addAtIndex(0, 0));
+        REQUIRE(linkedList->addAtIndex(0, 1));
+        REQUIRE(linkedList->head->value == 1);
+        REQUIRE(linkedList->tail->value == 0);
     }
 
     SECTION("deleteAtIndex using index which is higher than size of linked list") {
         linkedList = new SinglyLinkedList();
         linkedList->addAtHead(0);
-        REQUIRE(linkedList->deleteAtIndex(1) == false);
+        REQUIRE_FALSE(linkedList->deleteAtIndex(1));
     }
 
-    SECTION("deleteAtIndex using index which points to a head (zero)") {
+    SECTION("deleteAtIndex using index which points to the head (zero)") {
         linkedList = new SinglyLinkedList();
         linkedList->addAtHead(0);
-        REQUIRE(linkedList->deleteAtIndex(0) == true);
+        REQUIRE(linkedList->deleteAtIndex(0));
         REQUIRE(linkedList->head == nullptr);
     }
 
-    SECTION("deleteAtIndex using index which points to tail") {
+    SECTION("deleteAtIndex using index which points to the tail") {
         linkedList = new SinglyLinkedList();
         linkedList->addAtHead(0);
         linkedList->addAtTail(1);
-        REQUIRE(linkedList->deleteAtIndex(1) == true);
+        REQUIRE(linkedList->deleteAtIndex(1));
         REQUIRE(linkedList->tail->value == 0);
     }
 
