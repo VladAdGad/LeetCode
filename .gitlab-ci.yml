@@ -1,0 +1,33 @@
+---
+stages:
+  - lint
+  - build-compile
+  - test
+
+build:
+  stage: build-compile
+  image: ubuntu:21.04
+  before_script:
+    - apt update
+    - apt upgrade
+    - apt install python3-pip
+    - pip3 install virtualenv
+  script:
+    - virtualenv venv
+    - source venv/bin/activate
+    - pip3 install --requirement requirements.txt
+    - conan install --install-folder=build --build=missing
+    - cmake -B build -G Ninja
+    - ninja -C build
+  artifacts:
+    paths:
+      - ./build/bin/LeetCode
+    expire_in: 1d
+  interruptible: true
+
+test:
+  stage: test
+  image: ubuntu:21.04
+  script:
+    - ./build/bin/LeetCode
+  interruptible: true
