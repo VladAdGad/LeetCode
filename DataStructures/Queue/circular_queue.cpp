@@ -122,4 +122,5 @@ TEST_CASE("Circular Queue", "[Data Structures]") {
     REQUIRE(myCircularQueue->Front() == 5);
     REQUIRE(myCircularQueue->deQueue() == true);
     REQUIRE(myCircularQueue->Front() == 3);
+
 }

@@ -6,6 +6,7 @@ include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
 add_executable(${PROJECT_NAME}
+        DataStructures/Array/add_binary.cpp
         DataStructures/Array/diagonal_traverse.cpp
         DataStructures/Array/duplicate_zeros.cpp
         DataStructures/Array/find_numbers_with_even_number_of_digits.cpp
@@ -37,4 +38,4 @@ add_executable(${PROJECT_NAME}
 
         SearchAlgorithms/missing_number.cpp)
 
-target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS_CATCH2})
+target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS_CATCH2} -static)
